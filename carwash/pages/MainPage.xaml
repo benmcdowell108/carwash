@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+Program Author: Amber McDowell
+
+Assignment: Lenny's Car Wash
+
+Description: 
+
+This program uses a gui to simulate a web page where one would order a car wash service.
+
+-->
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="carwash.MainPage"
+             BackgroundColor="#222233">
+
+    <ScrollView>
+        <StackLayout>
+        <VerticalStackLayout x:Name="layoutSelectionScreen"
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                Text="Lenny's Car Wash"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="50"
+                FontAttributes="Bold,Italic"
+                TextColor="CadetBlue"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Select your Wash:"
+                FontSize="25"
+                TextColor="white"
+                HorizontalOptions="Start" />
+            <VerticalStackLayout BackgroundColor="#444455">
+            <RadioButton x:Name="Basic" Content="Basic Wash ($10.00)" 
+                        GroupName="washtype"
+                         TextColor="White"
+
+                         CheckedChanged="washType"/>
+            
+            <RadioButton x:Name="Premium" Content="Premium Wash ($15.00)" 
+                         GroupName="washtype" 
+                         TextColor="White"
+                         CheckedChanged="washType"/>
+
+            <RadioButton x:Name="Ultra" Content="Ultra Wash ($20.00)" 
+                         GroupName="washtype"
+                         TextColor="White"
+                         CheckedChanged="washType"/>
+            </VerticalStackLayout>
+
+            <Label
+                Text="Add Ons?:"
+                FontSize="25"
+                TextColor="white"
+                HorizontalOptions="Start" />
+
+            <VerticalStackLayout BackgroundColor="#444455">
+
+                    <HorizontalStackLayout Spacing="15">
+                    
+                    <HorizontalStackLayout Padding="50, 0">
+
+                            <CheckBox x:Name="chkAirFresh" />
+                        
+                    <Label VerticalOptions="Center" Text="Air Freshener Add-On ($2.00)" TextColor="White"
+                           />
+                       </HorizontalStackLayout>
+
+                        <HorizontalStackLayout >
+                            <CheckBox x:Name="chkWheelShine" />
+                        <Label VerticalOptions="Center" Text="Wheel Shine Add-On ($5.00)" TextColor="White"
+                           />
+                        
+                    </HorizontalStackLayout>
+                    
+                </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="15">
+                    
+                    <HorizontalStackLayout Padding="50, 0">
+                            <CheckBox x:Name="chkWax" />
+                        <Label VerticalOptions="Center" Text="Wax On Add-On ($5.00)" TextColor="White"
+                           />
+
+                    </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Margin="37, 0, 0, 0">
+                            <CheckBox x:Name="chkVacuum" />
+                        <Label VerticalOptions="Center" Text="Vacuum Add-On ($2.00)" TextColor="White"
+                           />
+                        
+                    </HorizontalStackLayout>
+                    
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+
+                <Button
+                x:Name="CounterBtn" FontAttributes="Bold"
+                Text="Finalize Order"
+                Clicked="OnCounterClicked"
+                    BackgroundColor="#779977"
+                HorizontalOptions="Center" />
+                <Label x:Name="error" Text="Error: Please select a wash type." TextColor="#FF7777" HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+
+
+
+
+
+            <VerticalStackLayout x:Name="layoutReceiptScreen"
+            Padding="30,0">
+            <Label
+                Text="Lenny's Car Wash"
+                FontSize="50"
+                FontAttributes="Bold,Italic"
+                TextColor="CadetBlue"
+                HorizontalOptions="Center" />
+            
+            <VerticalStackLayout BackgroundColor="#555566">
+                <Label Text="Receipt" HorizontalOptions="Center" FontSize="25" TextColor="White"
+                   />
+                    
+            </VerticalStackLayout>
+
+            <VerticalStackLayout BackgroundColor="#444455" Padding="0, 5">
+
+                    <Label x:Name="washReceipt" VerticalOptions="Center" FontSize="25" TextColor="White" Text=""/>
+                    <Label x:Name="addons" VerticalOptions="Center" FontSize="25" TextColor="White" Text="Add Ons Purchased: "/>
+
+                    <Label x:Name="airfresh" VerticalOptions="Center" FontSize="20" TextColor="White" Text="● Air Freshener service ($2.00)" Margin="40, 0, 0, 0"/>
+                    <Label x:Name="wheel" VerticalOptions="Center" FontSize="20" TextColor="White" Text="● Wheel Shine service ($5.00)" Margin="40, 0, 0, 0"/>
+                    <Label x:Name="wax" VerticalOptions="Center" FontSize="20" TextColor="White" Text="● Wax On service ($5.00)" Margin="40, 0, 0, 0"/>
+                    <Label x:Name="vacuum" VerticalOptions="Center" FontSize="20" TextColor="White" Text="● Vacuum service ($2.00)" Margin="40, 0, 0, 0"/>
+
+
+
+                </VerticalStackLayout>
+
+            <VerticalStackLayout  BackgroundColor="#555566">
+                    <Label x:Name="total"  Text="" FontSize="22" TextColor="#FFAAAA"
+                   />
+            </VerticalStackLayout>
+
+                <Button
+                x:Name="neworder" FontAttributes="Bold"
+                Text="New Order"
+                Clicked="newOrder"
+                    BackgroundColor="#779977"
+                HorizontalOptions="Center" />
+
+
+            </VerticalStackLayout>
+        
+        </StackLayout>
+        
+    </ScrollView>
+
+</ContentPage>
